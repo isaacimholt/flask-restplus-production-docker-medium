@@ -15,5 +15,9 @@ COPY . /docker_app
 # CMD python app/manage.py db migrate
 # CMD python app/manage.py db upgrade
 # CMD python app/manage.py run
-CMD python app/manage.py test
+# CMD python app/manage.py test
 # CMD cd app && ls -R | grep ":$" | sed -e 's/:$//' -e 's/[^-][^\/]*\//--/g' -e 's/^/   /' -e 's/-/|/'
+
+#WORKDIR /docker_app/app
+CMD python app/manage.py run
+#CMD ls -R | grep ":$" | sed -e 's/:$//' -e 's/[^-][^\/]*\//--/g' -e 's/^/   /' -e 's/-/|/'
