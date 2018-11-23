@@ -6,6 +6,7 @@ from flask_script import Manager
 
 from __init__ import blueprint
 from main import create_app, db
+from main.model import user
 
 app = create_app(os.getenv('BOILERPLATE_ENV') or 'dev')
 app.register_blueprint(blueprint)
@@ -21,7 +22,7 @@ manager.add_command('db', MigrateCommand)
 
 @manager.command
 def run():
-    app.run()
+    app.run(host='0.0.0.0')
 
 
 @manager.command
